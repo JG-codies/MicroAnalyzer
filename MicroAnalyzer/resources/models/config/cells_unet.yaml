@@ -1,0 +1,5 @@
+
+model: UNet
+backbone: vgg19
+num_channels: 3
+use_pretrained_imagenet_weights: True

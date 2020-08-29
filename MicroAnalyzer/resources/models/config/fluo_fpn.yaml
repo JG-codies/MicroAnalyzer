@@ -1,0 +1,6 @@
+
+model: FPN
+backbone: resnet50
+num_channels: 3
+use_pretrained_imagenet_weights: True
+dropout: 0.5

@@ -1,0 +1,2 @@
+number of cells in resources/images/validation_set/researcher_1/1.nd2: 79
+number of cells with YFP clusters: 23.0

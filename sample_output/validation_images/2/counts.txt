@@ -1,0 +1,2 @@
+number of cells in resources/images/validation_set/researcher_1/2.nd2: 51
+number of cells with mCherry clusters: 30.0
