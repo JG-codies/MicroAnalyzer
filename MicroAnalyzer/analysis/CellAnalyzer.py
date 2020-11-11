@@ -324,16 +324,16 @@ class CellAnalyzer:
             )
 
             # CVI API:
-            # calculated mean / std. if std is 0 then we check the mean. if the mean is 0 then the CVI is 1 (~0/0),
-            # otherwise the CVI is 0.
-            if cell_db[flu_name][DBKeys.CELL_STD_INTENSITY] == 0:
-                if cell_db[flu_name][DBKeys.CELL_MEAN_INTENSITY] == 0:
+            # calculated std / mean. if the mean is 0 then we check the std. if the std is 0 then the CVI is 1 (~0/0),
+            # otherwise the CVI is infinity.
+            if cell_db[flu_name][DBKeys.CELL_MEAN_INTENSITY] == 0:
+                if cell_db[flu_name][DBKeys.CELL_STD_INTENSITY] == 0:
                     cell_db[flu_name][DBKeys.CELL_INTENSITY_CVI] = 1
                 else:
                     cell_db[flu_name][DBKeys.CELL_INTENSITY_CVI] = float('inf')
             else:
-                cell_db[flu_name][DBKeys.CELL_INTENSITY_CVI] = (cell_db[flu_name][DBKeys.CELL_MEAN_INTENSITY] /
-                                                                cell_db[flu_name][DBKeys.CELL_STD_INTENSITY])
+                cell_db[flu_name][DBKeys.CELL_INTENSITY_CVI] = (cell_db[flu_name][DBKeys.CELL_STD_INTENSITY] /
+                                                                cell_db[flu_name][DBKeys.CELL_MEAN_INTENSITY])
 
             # perform axis intensity profiles of chosen axes
             if profile_sample_rate and profile_axis:
